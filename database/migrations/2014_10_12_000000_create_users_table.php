@@ -17,8 +17,7 @@ class CreateUsersTable extends Migration
             $table->integer('email_verification_code')->nullable();
             $table->integer('reset_verification_code')->nullable();
             $table->string('phone')->unique()->nullable();
-            $table->string('address_one')->nullable();
-            $table->string('address_two')->nullable();
+            $table->string('address')->nullable();
             $table->string('postcode')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();

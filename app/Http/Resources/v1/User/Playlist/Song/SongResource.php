@@ -11,6 +11,11 @@ class SongResource extends JsonResource
         return [
             'id' => $this->song->id,
             'name' => $this->song->name,
+            'genre' => [
+                'id' => $this->genre->id,
+                'name' => $this->genre->name,
+                'description' => $this->genre->description,
+            ],
             'album' => [
                 'id' => $this->song->album->id,
                 'name' => $this->song->album->name,

@@ -12,7 +12,7 @@ class LikedSongService
 
     public function index($user)
     {
-        $likedSongs = LikedSong::where('user_id', $user->id)->orderByDesc('created_at')->get();
+        $likedSongs = $user->likedSongs()->orderByDesc('created_at')->get();
 
         return $this->successResponse('Successfully retrived liked songs', new LikedSongCollection($likedSongs));
     }
