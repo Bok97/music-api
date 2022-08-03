@@ -15,7 +15,7 @@ class PlaylistService
 
     public function index($user)
     {
-        $playlists = Playlist::where('user_id', $user->id)->orderByDesc('created_at')->get();
+        $playlists = $user->playlists()->orderByDesc('created_at')->get();
 
         return $this->successResponse('Successfully retrived playlists', new PlaylistCollection($playlists));
     }
