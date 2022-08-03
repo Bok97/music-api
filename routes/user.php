@@ -15,6 +15,8 @@ Route::prefix('/private/v1/users')->group(function () {
 
         require __DIR__ . '/api/v1/user/liked_song.php';
 
+        require __DIR__ . '/api/v1/user/subscription.php';
+
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     });
 });

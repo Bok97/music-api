@@ -40,4 +40,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(History::class, 'user_id');
     }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class, 'user_id');
+    }
+
+    public function subscriptionBiils()
+    {
+        return $this->hasMany(SubscriptionBill::class, 'user_id');
+    }
 }
