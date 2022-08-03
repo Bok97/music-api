@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PlaylistSeeder::class,
             HistorySeeder::class,
             LikedSongSeeder::class,
+            SubscriptionPlanSeeder::class,
         ]);
     }
 }

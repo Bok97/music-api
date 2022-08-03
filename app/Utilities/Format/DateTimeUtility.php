@@ -8,4 +8,13 @@ class DateTimeUtility
     {
         return date('Y-m-d H:i:s', strtotime($date));
     }
+
+    public static function formatDateTimeToExtractMonth($dateTime)
+    {
+        if (empty($dateTime)) {
+            return null;
+        }
+        $formateDateTime = strtotime($dateTime);
+        return date('d F Y', $formateDateTime);
+    }
 }
