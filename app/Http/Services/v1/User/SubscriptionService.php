@@ -86,7 +86,7 @@ class SubscriptionService
             'name' => $user->name,
             'email' => $user->email,
             'phone' => $user->phone,
-            'addressOne' => $user->address_one,
+            'address' => $user->address,
             'postcode' => $user->postcode,
             'city' => $user->city,
             'state' => $user->state,

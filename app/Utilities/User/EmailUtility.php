@@ -16,8 +16,9 @@ class EmailUtility
             $user->email_verification_code = ConvertUtility::random6DigitCode();
             $user->save();
         }
-
-        SendVerificationCode::dispatch($user, 'verification');
+        if (env('ALLOWSENDEMAIL') == true) {
+            SendVerificationCode::dispatch($user, 'verification');
+        }
     }
 
     public static function sendUpdateEmailVerificationCode($user)
@@ -27,7 +28,10 @@ class EmailUtility
             $user->email_verified = false;
             $user->save();
         }
-        SendVerificationCode::dispatch($user, 'verification');
+
+        if (env('ALLOWSENDEMAIL') == true) {
+            SendVerificationCode::dispatch($user, 'verification');
+        }
     }
 
     public static function sendForgotPassword($email)
@@ -39,7 +43,9 @@ class EmailUtility
             $user->save();
         }
 
-        SendVerificationCode::dispatch($user, 'reset');
+        if (env('ALLOWSENDEMAIL') == true) {
+            SendVerificationCode::dispatch($user, 'reset');
+        }
     }
 
     public static function sendResendVerificationCode($params)

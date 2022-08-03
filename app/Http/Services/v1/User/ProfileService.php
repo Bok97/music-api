@@ -51,8 +51,7 @@ class ProfileService
                 break;
             case ('address'):
                 $user->update([
-                    'address_one' => $params->addressOne,
-                    'address_two' => $params->addressTwo,
+                    'address' => $params->address,
                     'city' => $params->city,
                     'state' => $params->state,
                     'postcode' => $params->postcode,

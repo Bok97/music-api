@@ -42,9 +42,13 @@ class PlaylistService
 
     public function recommendation($user)
     {
-        $songs = $user->histories->pluck('song_id');
+        $historySongs = $user->histories->pluck('song_id')->toArray();
 
-        $arrayIds = SongGenre::find($songs)->pluck('genre_id')->unique()->toArray();
+        $likedSongs = $user->likedSongs->pluck('song_id')->toArray();
+
+        $songs = array_unique(array_merge($historySongs, $likedSongs));
+
+        $arrayIds = SongGenre::whereIn('song_id', $songs)->pluck('genre_id')->unique()->toArray();
 
         $genreIds = array_values($arrayIds);
 

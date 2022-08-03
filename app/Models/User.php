@@ -20,8 +20,7 @@ class User extends Authenticatable
         'email_verification_code',
         'reset_verification_code',
         'phone',
-        'address_one',
-        'address_two',
+        'address',
         'postcode',
         'city',
         'state',
@@ -39,6 +38,11 @@ class User extends Authenticatable
     public function histories()
     {
         return $this->hasMany(History::class, 'user_id');
+    }
+
+    public function likedSongs()
+    {
+        return $this->hasMany(LikedSong::class, 'user_id');
     }
 
     public function subscriptions()
