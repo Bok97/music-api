@@ -3,7 +3,7 @@
 use App\Http\Controllers\v1\User\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/sign_up', [AuthController::class, 'register'])->name('register');
 Route::post('/check_email', [AuthController::class, 'checkEmail'])->name('checkEmail');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/forgot_password', [AuthController::class, 'forgotPassword'])->name('forgotPassword');
